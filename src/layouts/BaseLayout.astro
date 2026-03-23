@@ -1,0 +1,36 @@
+---
+
+const { title} = Astro.props
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/bread.png" />
+		<link rel="icon" href="/bread.png" />
+		<meta name="viewport" content="width=device-width initial-scale=1" />
+        <link rel="stylessheet" href="/styles/global.css" />
+		<title>{title} | Hana Loaf</title>
+	</head>
+	<body>
+        <header>
+            <nav>
+                <a href="/">Home </a>
+                <a href="/menu">Menu </a>
+                <a href="gallery">Gallery </a>
+                <a href="/about">About </a>
+                <a href="/contact">Contact </a>
+                <a href="/order">Order </a>
+            </nav>
+        </header>
+        
+        <main>
+            <slot />
+        </main>
+
+        <footer>
+            <p>© 2026 Hana Loaf Bakery 🌸</p>
+        </footer>
+	</body>
+
+</html>

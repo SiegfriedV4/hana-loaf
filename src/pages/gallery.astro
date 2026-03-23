@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="Gallery">
+
+  <h1>Our Gallery</h1>
+  <p>A look inside the bakery and everything we bake.</p>
+
+  <div class="gallery">
+    <img src="/images/sourdough.jpg" alt="Country sourdough loaf" />
+    <img src="/images/croissant.jpg" alt="Butter croissant" />
+    <img src="/images/lemon.jpg" alt="Lemon tart" />
+    <img src="/images/focaccia.jpg" alt="Rosemary focaccia" />
+    <img src="/images/cake.jpg" alt="Celebration cake" />
+    <img src="/images/cinnamon.jpg" alt="Cinnamon danish" />
+  </div>
+
+</BaseLayout>
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .gallery img:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+  }
+</style>
