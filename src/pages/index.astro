@@ -4,56 +4,79 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 <BaseLayout title="Home">
 
-  <section class="hero">
-    <div class="hero-text">
-      <p class="label">Cape Town Artisan Bakery</p>
-      <h1>Baked with love,<br/>served with warmth.</h1>
-      <p class="subtitle">
-        Handcrafted bread, pastries, and cakes made fresh
-        every morning. Inspired by Japanese softness and
-        French technique.
+  <section class="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16 py-8 lg:py-16">
+    <div class="flex-1 text-center lg:text-left">
+      <p class="text-primary font-semibold tracking-widest text-sm uppercase mb-3">
+        ✿ Cape Town Artisan Bakery
       </p>
-      <div class="hero-buttons">
-        <a href="/menu"  class="btn-primary">View Our Menu</a>
-        <a href="/order" class="btn-outline">Order Online</a>
+      <h1 class="text-4xl lg:text-6xl font-bold leading-tight text-base-content mb-5">
+        Baked with love,<br/>served with warmth.
+      </h1>
+      <p class="text-base-content/70 text-lg max-w-md mx-auto lg:mx-0 mb-8">
+        Handcrafted bread, pastries, and cakes made fresh every morning.
+        Inspired by Japanese softness and French technique.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+        <a href="/menu" class="btn btn-primary rounded-full px-8">View Our Menu</a>
+        <a href="/order" class="btn btn-outline btn-primary rounded-full px-8">Order Online</a>
       </div>
     </div>
 
-    <div class="hero-image">
-      <img src="/images/hero-bread.jpg" alt="Fresh bread from Hana Loaf" />
+    <div class="flex-1 w-full max-w-sm lg:max-w-none">
+      <div class="relative">
+        <!-- Floral accent ring -->
+        <div class="absolute -inset-3 rounded-3xl border-2 border-primary/20 border-dashed"></div>
+        <img
+          src="/images/hero-bread.jpg"
+          alt="Fresh bread from Hana Loaf"
+          class="w-full aspect-square object-cover rounded-3xl shadow-xl"
+        />
+        <!-- Floating badge -->
+        <div class="absolute -bottom-4 -left-4 bg-primary text-primary-content text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+          Baked Fresh Daily 🌸
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="features">
-    <div class="feature">
-      <span>🌾</span>
-      <h3>Heritage Flour</h3>
-      <p>Stone-ground grain sourced from local South African mills every week.</p>
-    </div>
-    <div class="feature">
-      <span>🧈</span>
-      <h3>Real Butter Only</h3>
-      <p>No shortcuts. Every layer of pastry uses pure cultured butter.</p>
-    </div>
-    <div class="feature">
-      <span>🌸</span>
-      <h3>Baked Fresh Daily</h3>
-      <p>Everything is made from scratch each morning. No day-old anything.</p>
+  <section class="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-6">
+    {[
+      { icon: '🌾', title: 'Heritage Flour', body: 'Stone-ground grain sourced from local South African mills every week.' },
+      { icon: '🧈', title: 'Real Butter Only', body: 'No shortcuts. Every layer of pastry uses pure cultured butter.' },
+      { icon: '🌸', title: 'Baked Fresh Daily', body: 'Everything is made from scratch each morning. No day-old anything.' },
+    ].map(({ icon, title, body }) => (
+      <div class="card bg-base-200 shadow-sm hover:shadow-md transition-shadow">
+        <div class="card-body items-center text-center gap-2">
+          <span class="text-4xl">{icon}</span>
+          <h3 class="card-title text-base">{title}</h3>
+          <p class="text-base-content/70 text-sm">{body}</p>
+        </div>
+      </div>
+    ))}
+  </section>
+
+  <section class="my-20 text-center px-4">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-primary/50 text-2xl mb-4 tracking-widest">❀ ✿ ❀</p>
+      <blockquote class="text-xl lg:text-2xl italic text-base-content/80 leading-relaxed">
+        "Good bread should do more than just taste good —
+        it should make you slow down for a moment."
+      </blockquote>
+      <cite class="block mt-4 text-sm text-primary font-semibold not-italic tracking-wide">
+        — Hana Loaf, est. 2018
+      </cite>
+      <p class="text-primary/50 text-2xl mt-4 tracking-widest">❀ ✿ ❀</p>
     </div>
   </section>
 
-  <section class="quote">
-    <blockquote>
-      "Good bread should do more than just taste good —
-      it should make you slow down for a moment."
-    </blockquote>
-    <cite>— Hana Loaf, est. 2018</cite>
-  </section>
-
-  <section class="cta">
-    <h2>Ready to order?</h2>
-    <p>Custom cakes, pastry boxes, and fresh bread available for pickup.</p>
-    <a href="/order" class="btn-primary">Order Now 🌸</a>
+  <section class="rounded-3xl bg-primary text-primary-content text-center px-8 py-14 mb-8">
+    <h2 class="text-3xl font-bold mb-3">Ready to order?</h2>
+    <p class="opacity-80 mb-8 max-w-md mx-auto">
+      Custom cakes, pastry boxes, and fresh bread available for pickup.
+    </p>
+    <a href="/order" class="btn bg-white text-primary hover:bg-base-200 rounded-full px-10 border-none shadow">
+      Order Now 🌸
+    </a>
   </section>
 
 </BaseLayout>
