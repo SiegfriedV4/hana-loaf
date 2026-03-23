@@ -1,36 +1,105 @@
 ---
+import '../styles/global.css'
 
-const { title} = Astro.props
+const { title } = Astro.props
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/bread.png" />
-		<link rel="icon" href="/bread.png" />
-		<meta name="viewport" content="width=device-width initial-scale=1" />
-        <link rel="stylessheet" href="/styles/global.css" />
-		<title>{title} | Hana Loaf</title>
-	</head>
-	<body>
-        <header>
-            <nav>
-                <a href="/">Home </a>
-                <a href="/menu">Menu </a>
-                <a href="gallery">Gallery </a>
-                <a href="/about">About </a>
-                <a href="/contact">Contact </a>
-                <a href="/order">Order </a>
-            </nav>
-        </header>
-        
-        <main>
-            <slot />
-        </main>
+<html lang="en" data-theme="lemonade">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/bread.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Hana Loaf</title>
+  </head>
 
-        <footer>
-            <p>© 2026 Hana Loaf Bakery 🌸</p>
-        </footer>
-	</body>
+  <body class="min-h-screen flex flex-col bg-base-100">
 
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 shadow-sm">
+      <div class="navbar bg-base-100 max-w-6xl mx-auto px-4">
+
+        <!-- Mobile: hamburger + brand -->
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-48 p-2 shadow">
+              <li><a href="/">Home</a></li>
+              <li><a href="/menu">Menu</a></li>
+              <li><a href="/gallery">Gallery</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/order" class="text-primary font-semibold">Order</a></li>
+            </ul>
+          </div>
+          <a href="/" class="text-xl font-bold text-primary tracking-tight ml-1 flex items-center gap-1">
+            🌸 Hana Loaf
+          </a>
+        </div>
+
+        <!-- Desktop: centre links -->
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal gap-1 text-sm font-medium">
+            <li><a href="/" class="rounded-full hover:text-primary">Home</a></li>
+            <li><a href="/menu" class="rounded-full hover:text-primary">Menu</a></li>
+            <li><a href="/gallery" class="rounded-full hover:text-primary">Gallery</a></li>
+            <li><a href="/about" class="rounded-full hover:text-primary">About</a></li>
+            <li><a href="/contact" class="rounded-full hover:text-primary">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Order CTA -->
+        <div class="navbar-end">
+          <a href="/order" class="btn btn-primary btn-sm rounded-full hidden sm:inline-flex">Order Now</a>
+        </div>
+
+      </div>
+
+      <!-- Floral divider -->
+      <div class="text-center text-primary/50 text-xs tracking-[0.4em] py-1 bg-base-200 select-none">
+        ✿ &nbsp; ❀ &nbsp; ✿ &nbsp; ❀ &nbsp; ✿ &nbsp; ❀ &nbsp; ✿ &nbsp; ❀ &nbsp; ✿
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="flex-1 max-w-6xl mx-auto w-full px-4 py-10">
+      <slot />
+    </main>
+
+    <!-- Floral divider -->
+    <div class="text-center text-primary/50 text-xs tracking-[0.4em] py-1 bg-base-200 select-none">
+      ✿ &nbsp; ❀ &nbsp; ✿ &nbsp; ❀ &nbsp; ✿ &nbsp; ❀ &nbsp; ✿ &nbsp; ❀ &nbsp; ✿
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-base-200 text-base-content">
+      <div class="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 sm:grid-cols-3 gap-8 text-sm">
+
+        <div>
+          <p class="text-lg font-bold text-primary mb-2">🌸 Hana Loaf</p>
+          <p class="opacity-70">Artisan bakery inspired by Japanese softness and French technique.</p>
+        </div>
+
+        <div>
+          <p class="font-semibold mb-2">Visit Us</p>
+          <p class="opacity-70">12 Blossom Lane, De Waterkant</p>
+          <p class="opacity-70">Cape Town, South Africa</p>
+        </div>
+
+        <div>
+          <p class="font-semibold mb-2">Hours</p>
+          <p class="opacity-70">Monday – Saturday: 7am – 4pm</p>
+          <p class="opacity-70">Sunday: 8am – 2pm</p>
+        </div>
+
+      </div>
+      <div class="text-center text-xs opacity-40 pb-6">
+        © 2026 Hana Loaf Bakery · Baked with love
+      </div>
+    </footer>
+
+  </body>
 </html>

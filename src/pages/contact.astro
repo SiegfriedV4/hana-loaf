@@ -2,7 +2,53 @@
 import BaseLayout from '../layouts/BaseLayout.astro'
 ---
 
-<BaseLayout>
-    <h1>Contact Page</h1>
-    <a href="/contact">Contact</a>
+<BaseLayout title="Contact">
+
+  <div class="text-center mb-12">
+    <p class="text-primary font-semibold tracking-widest text-sm uppercase mb-2">✿ Get In Touch</p>
+    <h1 class="text-4xl lg:text-5xl font-bold text-base-content">Contact Us</h1>
+  </div>
+
+  <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+    <div class="card bg-base-200 shadow-sm">
+      <div class="card-body gap-1">
+        <p class="text-2xl">📍</p>
+        <h3 class="font-semibold text-base-content">Find Us</h3>
+        <p class="text-base-content/70 text-sm">12 Blossom Lane</p>
+        <p class="text-base-content/70 text-sm">De Waterkant, Cape Town</p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 shadow-sm">
+      <div class="card-body gap-1">
+        <p class="text-2xl">🕐</p>
+        <h3 class="font-semibold text-base-content">Hours</h3>
+        <p class="text-base-content/70 text-sm">Mon – Sat: 7am – 4pm</p>
+        <p class="text-base-content/70 text-sm">Sunday: 8am – 2pm</p>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 shadow-sm">
+      <div class="card-body gap-1">
+        <p class="text-2xl">📞</p>
+        <h3 class="font-semibold text-base-content">Phone</h3>
+        <a href="tel:+27215551234" class="text-primary text-sm hover:underline">+27 21 555 1234</a>
+      </div>
+    </div>
+
+    <div class="card bg-base-200 shadow-sm">
+      <div class="card-body gap-1">
+        <p class="text-2xl">✉️</p>
+        <h3 class="font-semibold text-base-content">Email</h3>
+        <a href="mailto:hello@hanaloaf.co.za" class="text-primary text-sm hover:underline break-all">
+          hello@hanaloaf.co.za
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="text-center text-base-content/40 text-sm mt-12">✿ &nbsp; ❀ &nbsp; ✿</p>
+
 </BaseLayout>
